@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Todo.Models;
+using Todo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddScoped<ITodoService, TodoService>();
 builder.Services.AddDbContext<TodoContext>(opt =>
     opt.UseSqlServer(connectionString));
 builder.Services.AddCors(options =>

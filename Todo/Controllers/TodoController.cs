@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Todo.Models;
+using Todo.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,23 +11,28 @@ namespace Todo.Controllers
     [ApiController]
     public class TodoController : ControllerBase
     {
-        private readonly TodoContext _context;
+        
+        private readonly ITodoService _todoService;
 
-        public TodoController(TodoContext context)
+        public TodoController(ITodoService todoService)
         {
-            _context = context;
+          
+            _todoService = todoService;
         }
 
         // GET: api/<TodoController>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodoModel>>> GetTodo()
         {
-            return Ok(await _context.Todos.ToListAsync());
+            return Ok(await _todoService.GetTodosAsync());
         }
 
         // GET api/<TodoController>/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TodoModel>> GetTodoid(int id)
+
+
+        //[HttpGet("{id}")]
+
+        /*public async Task<ActionResult<TodoModel>> GetTodoid(int id)
         {
             var todo = await _context.Todos.FindAsync(id);
             if(todo == null)
@@ -93,6 +99,6 @@ namespace Todo.Controllers
         private bool TodoExists(int id)
         {
             return _context.Todos.Any(t => t.Id == id);
-        }
+        }*/
     }
 }
