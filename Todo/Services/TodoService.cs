@@ -1,20 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Todo.Models;
+﻿using Todo.Models;
+using Todo.QueryStore;
 
 namespace Todo.Services
 {
     public class TodoService:ITodoService
     {
-        private readonly TodoContext todoContext;
+        private readonly ITodoQueryStore _todoQueryStore;
 
-        public TodoService(TodoContext todoContext)
+        public TodoService(ITodoQueryStore todoQueryStore)
         {
-            this.todoContext = todoContext;
+            _todoQueryStore = todoQueryStore;
         }
 
         public async Task<IEnumerable<TodoModel>> GetTodosAsync()
         {
-            return await todoContext.Todos.ToListAsync();
+            //return new List<TodoModel>();
+            return await _todoQueryStore.GetTodosAsync();
         }
     }
 }

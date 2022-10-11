@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Todo.Models;
+using Todo.QueryStore;
 using Todo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddScoped<ITodoService, TodoService>();
+builder.Services.AddScoped<ITodoQueryStore, TodoQueryStore>();
 builder.Services.AddDbContext<TodoContext>(opt =>
     opt.UseSqlServer(connectionString));
 builder.Services.AddCors(options =>
