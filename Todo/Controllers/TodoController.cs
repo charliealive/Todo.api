@@ -13,7 +13,7 @@ namespace Todo.Controllers
     {
         
         private readonly ITodoService _todoService;
-
+        //Calling service
         public TodoController(ITodoService todoService)
         {
           
@@ -22,6 +22,7 @@ namespace Todo.Controllers
 
         // GET: api/<TodoController>
         [HttpGet]
+        //Collect result of service
         public async Task<ActionResult<IEnumerable<TodoModel>>> GetTodo()
         {
             return Ok(await _todoService.GetTodosAsync());
