@@ -12,6 +12,7 @@ namespace Todo.QueryStore
             this.todoContext = todoContext;
         }
 
+        //Calling Context method
         public async Task<IEnumerable<TodoModel>> GetTodosAsync()
         {
             return await todoContext.Todos.ToListAsync();
