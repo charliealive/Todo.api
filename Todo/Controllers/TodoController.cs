@@ -42,7 +42,7 @@ namespace Todo.Controllers
             }
             return todo;
         }
-
+        
         // POST api/<TodoController>
         [HttpPost]
         public async Task<ActionResult<TodoModel>> PostTodo(TodoModel todo)
@@ -52,7 +52,13 @@ namespace Todo.Controllers
 
             return CreatedAtAction("GetTodoid", new { id = todo.Id }, todo);
         }
-
+        
+        */
+        public async Task<ActionResult<IEnumerable<TodoModel>>> PostTodo()
+        {
+            return Ok(await _todoService.PostTodosAsync());
+        }
+        /*
         // PUT api/<TodoController>/5
         [HttpPut("{id}")]
         public async Task<ActionResult<TodoModel>> PutTodo(int id, TodoModel todo)

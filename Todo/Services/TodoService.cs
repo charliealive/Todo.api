@@ -17,5 +17,11 @@ namespace Todo.Services
             //return new List<TodoModel>();
             return await _todoQueryStore.GetTodosAsync();
         }
+
+        public async Task<IEnumerable<TodoModel>> PostTodosAsync()
+        {
+            
+            return await _todoQueryStore.PostTodosAsync();
+        }
     }
 }
