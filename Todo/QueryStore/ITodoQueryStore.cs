@@ -2,10 +2,10 @@
 
 namespace Todo.QueryStore
 {
-    public interface ITodoQueryStore
+    public interface ITodoQueryStore<T>
     {
         Task<IEnumerable<TodoModel>> GetTodosAsync();
 
-        Task<IEnumerable<TodoModel>> PostTodosAsync(TodoModel todo);
+        Task<IEnumerable<TodoModel>> PostTodosAsync(T todo);
     }
 }

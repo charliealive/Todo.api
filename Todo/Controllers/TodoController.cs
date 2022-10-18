@@ -54,7 +54,7 @@ namespace Todo.Controllers
         }
         
         */
-        public async Task<ActionResult<IEnumerable<TodoModel>>> PostTodo()
+        public async Task<ActionResult<IEnumerable<TodoModel>>> PostTodo(TodoModel todo)
         {
             return Ok(await _todoService.PostTodosAsync());
         }

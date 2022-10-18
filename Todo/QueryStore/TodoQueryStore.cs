@@ -4,7 +4,8 @@ using Todo.Models;
 
 namespace Todo.QueryStore
 {
-    public class TodoQueryStore:ITodoQueryStore
+    public class TodoQueryStore: ITodoQueryStore
+        
     {
         private readonly TodoContext todoContext;
 
@@ -19,12 +20,12 @@ namespace Todo.QueryStore
             return await todoContext.Todos.ToListAsync();
         }
 
-        public async Task<IEnumerable<TodoModel>> PostTodosAsync(TodoModel todo)
+        public async Task<TodoModel> PostTodosAsync(TodoModel todo)
         {
             todoContext.Todos.Add(todo);
             await todoContext.SaveChangesAsync();
 
-            return CreatedAtAction("GetTodoid", new { id = todo.Id }, todo);
+            return todo;
             
         }
     }
