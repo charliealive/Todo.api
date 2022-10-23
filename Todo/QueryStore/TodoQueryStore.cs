@@ -25,7 +25,7 @@ namespace Todo.QueryStore
             todoContext.Todos.Add(todo);
             await todoContext.SaveChangesAsync();
 
-            return await todo;
+            return todo;
             
         }
     }
