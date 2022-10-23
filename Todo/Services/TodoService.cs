@@ -3,7 +3,7 @@ using Todo.QueryStore;
 
 namespace Todo.Services
 {
-    public class TodoService:ITodoService
+    public class TodoService: ITodoService
     {
         private readonly ITodoQueryStore _todoQueryStore;
 
@@ -18,10 +18,9 @@ namespace Todo.Services
             return await _todoQueryStore.GetTodosAsync();
         }
 
-        public async Task<IEnumerable<TodoModel>> PostTodosAsync()
+        public async Task<TodoModel> PostTodosAsync(TodoModel todo)
         {
-            
-            return await _todoQueryStore.PostTodosAsync();
+            return await _todoQueryStore.PostTodoAsync(todo);
         }
     }
 }

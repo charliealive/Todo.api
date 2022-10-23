@@ -6,7 +6,7 @@ namespace Todo.Services
     {
         Task<IEnumerable<TodoModel>> GetTodosAsync();
 
-        Task<IEnumerable<TodoModel>> PostTodosAsync();
+        Task<TodoModel> PostTodosAsync(TodoModel todo);
 
     }
 }

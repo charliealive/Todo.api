@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Todo.Models;
 
 namespace Todo.QueryStore
@@ -20,13 +19,12 @@ namespace Todo.QueryStore
             return await todoContext.Todos.ToListAsync();
         }
 
-        public async Task<TodoModel> PostTodosAsync(TodoModel todo)
+        public async Task<TodoModel> PostTodoAsync(TodoModel todo)
         {
             todoContext.Todos.Add(todo);
             await todoContext.SaveChangesAsync();
 
             return todo;
-            
         }
     }
 }

@@ -54,9 +54,9 @@ namespace Todo.Controllers
         }
         
         */
-        public async Task<ActionResult<IEnumerable<TodoModel>>> PostTodo(TodoModel todo)
+        public async Task<IActionResult> PostTodo(TodoModel todo)
         {
-            return Ok(await _todoService.PostTodosAsync());
+            return Ok(await _todoService.PostTodosAsync(todo));
         }
         /*
         // PUT api/<TodoController>/5
