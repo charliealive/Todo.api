@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 using Todo.Models;
 using Todo.Services;
 
@@ -56,7 +57,8 @@ namespace Todo.Controllers
         */
         public async Task<IActionResult> PostTodo(TodoModel todo)
         {
-            return Ok(await _todoService.PostTodosAsync(todo));
+            return new StatusCodeResult(418);
+            //return Ok(await _todoService.PostTodosAsync(todo));
         }
         /*
         // PUT api/<TodoController>/5
