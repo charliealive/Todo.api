@@ -26,5 +26,15 @@ namespace Todo.QueryStore
 
             return todo;
         }
+
+        public async Task<TodoModel> PutTodoAsync(int id, TodoModel todo)
+        {
+
+            todoContext.Entry(todo).State = EntityState.Modified;
+
+            await todoContext.SaveChangesAsync();
+
+            return todo;
+        }
     }
 }
