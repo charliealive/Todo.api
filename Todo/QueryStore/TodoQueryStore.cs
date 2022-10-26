@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Todo.Models;
 
 namespace Todo.QueryStore
@@ -26,5 +28,42 @@ namespace Todo.QueryStore
 
             return todo;
         }
+        /*public async Task<ActionResult<TodoModel>> PutTodo(int id, TodoModel todo)
+        {
+            if ( id != todo.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(todo).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TodoExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return todo;
+        }
+        */
+        public async Task<TodoModel> PutTodoAsync(int id,TodoModel todo)
+        {
+            
+            todoContext.Entry(todo).State = EntityState.Modified;
+
+                await todoContext.SaveChangesAsync();
+            
+            return todo;
+        }
+        
     }
 }

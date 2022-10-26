@@ -7,5 +7,7 @@ namespace Todo.QueryStore
         Task<IEnumerable<TodoModel>> GetTodosAsync();
 
         Task<TodoModel> PostTodoAsync(TodoModel todo);
+
+        Task<TodoModel> PutTodoAsync(int id,TodoModel todo);
     }
 }

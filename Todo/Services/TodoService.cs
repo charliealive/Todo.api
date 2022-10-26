@@ -22,5 +22,10 @@ namespace Todo.Services
         {
             return await _todoQueryStore.PostTodoAsync(todo);
         }
+
+        public async Task<TodoModel> PutTodosAsync(int id,TodoModel todo)
+        {
+            return await _todoQueryStore.PutTodoAsync(id,todo);
+        }
     }
 }
