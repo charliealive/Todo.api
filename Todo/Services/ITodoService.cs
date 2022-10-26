@@ -8,5 +8,6 @@ namespace Todo.Services
 
         Task<TodoModel> PostTodosAsync(TodoModel todo);
 
+        Task<TodoModel> PutTodosAsync(int id,TodoModel todo);
     }
 }
