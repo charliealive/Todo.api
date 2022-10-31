@@ -28,6 +28,22 @@ namespace Todo.Controllers
             return Ok(await _todoService.GetTodosAsync());
         }
 
+        public async Task<IActionResult> PostTodo(TodoModel todo)
+        {
+            return Ok(await _todoService.PostTodosAsync(todo));
+        }
+
+        public async Task<IActionResult> PutTodo(int id, TodoModel todo)
+        {
+            //return new StatusCodeResult(418);
+            return Ok(await _todoService.PutTodosAsync(id, todo));
+        }
+
+        public async Task<IActionResult> DeleteTodo(int id)
+        {
+            //return new StatusCodeResult(418);
+            return Ok(await _todoService.DeleteTodosAsync(id));
+        }
         // GET api/<TodoController>/5
 
 
@@ -54,10 +70,7 @@ namespace Todo.Controllers
         }
         
         */
-        public async Task<IActionResult> PostTodo(TodoModel todo)
-        {
-            return Ok(await _todoService.PostTodosAsync(todo));
-        }
+
         /*
         // PUT api/<TodoController>/5
         [HttpPut("{id}")]
@@ -88,11 +101,7 @@ namespace Todo.Controllers
             return todo;
         }
         */
-        public async Task<IActionResult> PutTodo(int id, TodoModel todo)
-        {
-            //return new StatusCodeResult(418);
-            return Ok(await _todoService.PutTodosAsync(id, todo));
-        }
+
 
         /*
         // DELETE api/<TodoController>/5

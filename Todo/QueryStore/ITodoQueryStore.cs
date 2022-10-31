@@ -9,5 +9,7 @@ namespace Todo.QueryStore
         Task<TodoModel> PostTodoAsync(TodoModel todo);
 
         Task<TodoModel> PutTodoAsync(int id,TodoModel todo);
+
+        Task<TodoModel> DeleteTodoAsync(int id);
     }
 }

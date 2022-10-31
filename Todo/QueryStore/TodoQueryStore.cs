@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Todo.Models;
 
 namespace Todo.QueryStore
@@ -36,5 +37,31 @@ namespace Todo.QueryStore
 
             return todo;
         }
+
+        public async Task<TodoModel> DeleteTodoAsync(int id)
+        {
+            var todo = await todoContext.Todos.FindAsync(id);
+            todoContext.Todos.Remove(todo);
+            await todoContext.SaveChangesAsync();
+            return null;
+            
+        }
+        /*
+        // DELETE api/<TodoController>/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<TodoModel>> DeleteTodo(int id)
+        {
+            var todo = await _context.Todos.FindAsync(id);
+            if( todo == null)
+            {
+                return NotFound();
+            }
+
+            _context.Todos.Remove(todo);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+        */
     }
 }

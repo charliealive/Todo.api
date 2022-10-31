@@ -26,5 +26,10 @@ namespace Todo.Services
         {
             return await _todoQueryStore.PutTodoAsync(id,todo);
         }
+
+        public async Task<TodoModel> DeleteTodosAsync(int id)
+        {
+            return await _todoQueryStore.DeleteTodoAsync(id);
+        }
     }
 }
