@@ -38,7 +38,7 @@ namespace Todo.Controllers
             //return new StatusCodeResult(418);
             return Ok(await _todoService.PutTodosAsync(id, todo));
         }
-
+        //deletetodo with ID
         public async Task<IActionResult> DeleteTodo(int id)
         {
             //return new StatusCodeResult(418);
