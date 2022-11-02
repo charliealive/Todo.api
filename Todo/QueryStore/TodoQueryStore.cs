@@ -37,7 +37,7 @@ namespace Todo.QueryStore
 
             return todo;
         }
-
+        //return nothing only delete
         public async Task<TodoModel> DeleteTodoAsync(int id)
         {
             var todo = await todoContext.Todos.FindAsync(id);
